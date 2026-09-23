@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор — Spotify style</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- Панель управления темой (п.12 - кнопка смены темы, п.17 - выпадающий список) -->
+    <div class="controls">
+      <select id="accent-select" class="theme-select" title="Выбрать акцентный цвет">
+        <option value="theme-green" selected>🟢 Зелёная (Spotify)</option>
+        <option value="theme-blue">🔵 Синяя</option>
+        <option value="theme-purple">🟣 Фиолетовая</option>
+      </select>
+
+      <button id="theme-toggle" class="theme-toggle-btn" title="Сменить тему (тёмная/светлая)">🌙</button>
+    </div>
+
+    <!-- Калькулятор -->
+    <div class="calculator">
+
+      <!-- блок с экраном калькулятора (п.4 - другой цвет, п.5 - скруглённые края, п.11 - увеличенный размер) -->
+      <div id="result" class="result">0</div>
+
+      <!-- блок с кнопками калькулятора -->
+      <div class="buttons">
+
+        <div class="row">
+          <button id="btn_op_clear" class="my-btn secondary">C</button>
+          <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+          <button id="btn_op_percent" class="my-btn secondary">%</button>
+          <button id="btn_op_div" class="my-btn primary">/</button>
+        </div>
+
+        <div class="row">
+          <button id="btn_digit_7" class="my-btn">7</button>
+          <button id="btn_digit_8" class="my-btn">8</button>
+          <button id="btn_digit_9" class="my-btn">9</button>
+          <button id="btn_op_mult" class="my-btn primary">x</button>
+        </div>
+
+        <div class="row">
+          <button id="btn_digit_4" class="my-btn">4</button>
+          <button id="btn_digit_5" class="my-btn">5</button>
+          <button id="btn_digit_6" class="my-btn">6</button>
+          <button id="btn_op_minus" class="my-btn primary">-</button>
+        </div>
+
+        <div class="row">
+          <button id="btn_digit_1" class="my-btn">1</button>
+          <button id="btn_digit_2" class="my-btn">2</button>
+          <button id="btn_digit_3" class="my-btn">3</button>
+          <button id="btn_op_plus" class="my-btn primary">+</button>
+        </div>
+
+        <div class="row">
+          <button id="btn_digit_0" class="my-btn zero">0</button>
+          <button id="btn_digit_dot" class="my-btn">.</button>
+          <button id="btn_op_equal" class="my-btn primary execute">=</button>
+        </div>
+
+      </div>
+
+      <!-- п.16 - кнопка со ссылкой на GitHub -->
+      <a class="github-btn" href="https://github.com/mitrohinaa610satira/-3-54-" target="_blank" rel="noopener noreferrer">
+        ⭐ Репозиторий на GitHub
+      </a>
+
+    </div>
+
+    <!-- п.19 - поле с целью ЛР, подсвечены ключевые слова -->
+    <p class="lab-goal">
+      <b>Цель работы:</b> <mark>знакомство</mark> с инструментами построения пользовательских интерфейсов
+      web-сайтов — <mark>HTML</mark> и <mark>CSS</mark> — на примере верстки и стилизации калькулятора
+      в стилистике сервиса Spotify.
+    </p>
+
+    <!-- п.18 - сворачивающиеся/разворачивающиеся подробности -->
+    <details class="author-details">
+      <summary>Автор</summary>
+      <p>ФИО: Митрохина Анастасия Александровна</p>
+      <p>Группа: ИБМ3-54Б</p>
+    </details>
+
+    <!-- п.9 - подпись внизу -->
+    <footer class="footer">ЛР выполнена Митрохина Анастасия Александровна, гр. ИБМ3-54Б</footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+/* =========================================================
+   ЛР 1. Calculator — стилистика Spotify
+   Митрохина Анастасия, гр. ИБМ3-54Б
+   ========================================================= */
+
+/* --- Цветовые темы (п.1 - другая палитра, п.12 - смена акцента) --- */
+:root,
+.theme-green {
+  --accent: #1db954;       /* фирменный зелёный Spotify */
+  --accent-hover: #1ed760;
+  --bg-from: #1a1a1a;
+  --bg-to: #0d0d0d;
+}
+
+.theme-blue {
+  --accent: #2e77ff;
+  --accent-hover: #5b93ff;
+  --bg-from: #101a2b;
+  --bg-to: #05070d;
+}
+
+.theme-purple {
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --bg-from: #1c1424;
+  --bg-to: #0a060d;
+}
+
+:root {
+  --bg-color: #121212;
+  --surface: #181818;
+  --btn-bg: #2a2a2a;
+  --btn-secondary: #3e3e3e;
+  --text-color: #ffffff;
+  --text-muted: #b3b3b3;
+  --result-bg: #000000;
+}
+
+/* п.2 / п.12 - светлая тема (переключается кнопкой) */
+body.light {
+  --bg-color: #f2f2f2;
+  --surface: #ffffff;
+  --btn-bg: #e6e6e6;
+  --btn-secondary: #d4d4d4;
+  --text-color: #121212;
+  --text-muted: #4d4d4d;
+  --result-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* п.2 - тёмный фон, п.15 - изображение на фон (градиентная «подсветка» в духе Spotify) */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(circle at 15% 15%, var(--bg-from) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, var(--accent) 0%, transparent 35%),
+    linear-gradient(160deg, var(--bg-to) 0%, var(--bg-color) 60%);
+  background-attachment: fixed;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* п.10 - калькулятор по центру страницы */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px 16px 40px;
+  gap: 16px;
+}
+
+/* --- Панель управления темой --- */
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.theme-select {
+  background: var(--surface);
+  color: var(--text-color);
+  border: 1px solid var(--btn-secondary);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-toggle-btn {
+  background: var(--surface);
+  border: 1px solid var(--btn-secondary);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent);
+}
+
+/* --- Карточка калькулятора --- */
+.calculator {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* п.4 - другой цвет вывода результата, п.5 - скруглённые края,
+   п.11 - увеличенный размер окна вывода */
+.result {
+  width: 280px;
+  height: 90px;
+  border-radius: 18px;
+  background: var(--result-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  font-size: 2.2rem;
+  font-weight: 700;                 /* п.7 - шрифт потолще */
+  font-family: "Montserrat", Arial, Helvetica, sans-serif; /* п.6 - другой шрифт цифр */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Базовый стиль кнопки: п.3 - квадратные вместо круглых */
+.my-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;              /* было 50% (круг) -> теперь прямоугольная */
+  border: none;
+  background: var(--btn-bg);
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.my-btn.zero {
+  width: 126px;                     /* 0 растянут на две колонки, как в оригинальных калькуляторах */
+}
+
+/* п.8 - другой цвет при наведении */
+.my-btn:hover {
+  background: var(--accent-hover);
+  color: #0d0d0d;
+}
+
+.my-btn:active {
+  transform: scale(0.96);
+  filter: brightness(115%);
+}
+
+.my-btn.secondary {
+  background: var(--btn-secondary);
+}
+
+.my-btn.primary {
+  background: var(--accent);
+  color: #0d0d0d;
+  font-weight: 700;
+}
+
+.my-btn.execute {
+  width: 126px;
+  border-radius: 30px;              /* кнопке "=" оставлена мягкая пилюля для акцента */
+}
+
+/* п.16 - кнопка со ссылкой на GitHub */
+.github-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--btn-secondary);
+  color: var(--text-color);
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.github-btn:hover {
+  background: var(--accent);
+  color: #0d0d0d;
+}
+
+/* п.19 - цель ЛР, подсветка ключевых слов через <mark> */
+.lab-goal {
+  max-width: 420px;
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 300;                 /* п.13 - здесь шрифт сделан тоньше */
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.lab-goal mark {
+  background: var(--accent);
+  color: #0d0d0d;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* п.18 - сворачивающийся блок "Автор" */
+.author-details {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 10px 16px;
+  max-width: 280px;
+}
+
+.author-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.author-details p {
+  margin: 6px 0 0;
+}
+
+/* п.9 / п.14 - подпись внизу другим цветом шрифта */
+.footer {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
