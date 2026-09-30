@@ -16,6 +16,8 @@
 
     <!-- Панель управления темой (п.12 - кнопка смены темы, п.17 - выпадающий список) -->
     <div class="controls">
+      <a href="index.html" class="theme-toggle-btn" title="Назад на стартовую страницу" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">←</a>
+
       <select id="accent-select" class="theme-select" title="Выбрать акцентный цвет">
         <option value="theme-green" selected>🟢 Зелёная (Spotify)</option>
         <option value="theme-blue">🔵 Синяя</option>
@@ -33,57 +35,42 @@
 
       <!-- блок с кнопками калькулятора -->
       <div class="buttons">
+        <button id="btn_op_clear" class="my-btn secondary">C</button>
+        <button id="btn_op_sign" class="my-btn secondary">+/-</button>
+        <button id="btn_op_percent" class="my-btn secondary">%</button>
+        <button id="btn_op_div" class="my-btn primary">/</button>
 
-        <div class="row">
-          <button id="btn_op_clear" class="my-btn secondary">C</button>
-          <button id="btn_op_sign" class="my-btn secondary">+/-</button>
-          <button id="btn_op_percent" class="my-btn secondary">%</button>
-          <button id="btn_op_div" class="my-btn primary">/</button>
-        </div>
+        <button id="btn_digit_7" class="my-btn">7</button>
+        <button id="btn_digit_8" class="my-btn">8</button>
+        <button id="btn_digit_9" class="my-btn">9</button>
+        <button id="btn_op_mult" class="my-btn primary">x</button>
 
-        <div class="row">
-          <button id="btn_digit_7" class="my-btn">7</button>
-          <button id="btn_digit_8" class="my-btn">8</button>
-          <button id="btn_digit_9" class="my-btn">9</button>
-          <button id="btn_op_mult" class="my-btn primary">x</button>
-        </div>
+        <button id="btn_digit_4" class="my-btn">4</button>
+        <button id="btn_digit_5" class="my-btn">5</button>
+        <button id="btn_digit_6" class="my-btn">6</button>
+        <button id="btn_op_minus" class="my-btn primary">-</button>
 
-        <div class="row">
-          <button id="btn_digit_4" class="my-btn">4</button>
-          <button id="btn_digit_5" class="my-btn">5</button>
-          <button id="btn_digit_6" class="my-btn">6</button>
-          <button id="btn_op_minus" class="my-btn primary">-</button>
-        </div>
+        <button id="btn_digit_1" class="my-btn">1</button>
+        <button id="btn_digit_2" class="my-btn">2</button>
+        <button id="btn_digit_3" class="my-btn">3</button>
+        <button id="btn_op_plus" class="my-btn primary">+</button>
 
-        <div class="row">
-          <button id="btn_digit_1" class="my-btn">1</button>
-          <button id="btn_digit_2" class="my-btn">2</button>
-          <button id="btn_digit_3" class="my-btn">3</button>
-          <button id="btn_op_plus" class="my-btn primary">+</button>
-        </div>
-
-        <div class="row">
-          <button id="btn_digit_0" class="my-btn zero">0</button>
-          <button id="btn_digit_dot" class="my-btn">.</button>
-          <button id="btn_op_equal" class="my-btn primary execute">=</button>
-        </div>
-
+        <button id="btn_digit_0" class="my-btn zero">0</button>
+        <button id="btn_digit_dot" class="my-btn">.</button>
+        <button id="btn_op_equal" class="my-btn primary">=</button>
       </div>
 
       <!-- ЛР2: дополнительные операции, запрограммированные на JavaScript -->
-      <div class="buttons extra-buttons">
-        <div class="row">
-          <button id="btn_backspace" class="my-btn extra secondary" title="Стереть последнюю цифру">⌫</button>
-          <button id="btn_sqrt" class="my-btn extra secondary" title="Квадратный корень">√</button>
-          <button id="btn_square" class="my-btn extra secondary" title="Возведение в квадрат">x²</button>
-          <button id="btn_factorial" class="my-btn extra secondary" title="Факториал">x!</button>
-        </div>
-        <div class="row">
-          <button id="btn_triple_zero" class="my-btn extra secondary" title="Добавить три нуля">000</button>
-          <button id="btn_reciprocal" class="my-btn extra secondary" title="Индивидуальная операция: обратное число 1/x">1/x</button>
-          <button id="btn_bg_color" class="my-btn extra secondary" title="Сменить цвет фона страницы">🎨 Фон</button>
-          <button id="btn_result_color" class="my-btn extra secondary" title="Сменить цвет окна вывода">🖌 Экран</button>
-        </div>
+      <div class="extra-buttons">
+        <button id="btn_backspace" class="my-btn extra secondary" title="Стереть последнюю цифру">⌫</button>
+        <button id="btn_sqrt" class="my-btn extra secondary" title="Квадратный корень">√</button>
+        <button id="btn_square" class="my-btn extra secondary" title="Возведение в квадрат">x²</button>
+        <button id="btn_factorial" class="my-btn extra secondary" title="Факториал">x!</button>
+
+        <button id="btn_triple_zero" class="my-btn extra secondary" title="Добавить три нуля">000</button>
+        <button id="btn_reciprocal" class="my-btn extra secondary" title="Индивидуальная операция: обратное число 1/x">1/x</button>
+        <button id="btn_bg_color" class="my-btn extra secondary" title="Сменить цвет фона страницы">🎨</button>
+        <button id="btn_result_color" class="my-btn extra secondary" title="Сменить цвет окна вывода">🖌</button>
       </div>
 
       <!-- п.16 - кнопка со ссылкой на GitHub -->

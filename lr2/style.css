@@ -145,22 +145,22 @@ body {
   text-overflow: ellipsis;
 }
 
+/* Сетка кнопок: все ряды строго одной ширины, кнопки ровно по центру.
+   4 колонки фиксированной ширины — благодаря grid ни один ряд не может
+   стать шире другого, как это было раньше с "0" и "=" на flex. */
 .buttons {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 58px);
   gap: 10px;
+  justify-content: center;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
-}
-
-/* Базовый стиль кнопки: п.3 - квадратные вместо круглых */
+/* Единый стиль для всех кнопок — один border-radius, один размер шрифта,
+   одна форма. Разным остаётся только цвет фона (primary/secondary). */
 .my-btn {
   width: 58px;
   height: 58px;
-  border-radius: 10px;              /* было 50% (круг) -> теперь прямоугольная */
+  border-radius: 10px;
   border: none;
   background: var(--btn-bg);
   color: var(--text-color);
@@ -172,8 +172,11 @@ body {
   transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
+/* "0" занимает ровно 2 колонки сетки — ширина считается самим grid,
+   поэтому всегда совпадает с шириной остальных кнопок + отступом */
 .my-btn.zero {
-  width: 126px;                     /* 0 растянут на две колонки, как в оригинальных калькуляторах */
+  grid-column: span 2;
+  width: auto;
 }
 
 /* п.8 - другой цвет при наведении */
@@ -197,14 +200,14 @@ body {
   font-weight: 700;
 }
 
-.my-btn.execute {
-  width: 126px;
-  border-radius: 30px;              /* кнопке "=" оставлена мягкая пилюля для акцента */
-}
-
-/* ЛР2: дополнительные кнопки операций (√, x², x!, 000, 1/x, смена цвета фона/экрана) */
+/* ЛР2: дополнительные кнопки операций (√, x², x!, 000, 1/x, смена цвета фона/экрана) —
+   та же сетка на 4 колонки, тот же размер и форма, что и у основных кнопок */
 .extra-buttons {
-  margin-top: -6px;
+  display: grid;
+  grid-template-columns: repeat(4, 58px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 4px;
 }
 
 .my-btn.extra {
