@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #090b0a;
+  --panel: #121512;
+  --panel-hover: #1b201c;
+  --text: #f6f7f6;
+  --muted: #a4aaa5;
+  --green: #1ed760;
+  --green-dark: #16b954;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Manrope', Arial, sans-serif;
+}
+button, input { font: inherit; }
+.app-shell { max-width: 1440px; margin: 0 auto; padding: 18px; }
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 13px 20px; border-radius: 18px; background: #111411; margin-bottom: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; letter-spacing: -.5px; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--green); color: #071008;
+  display: grid; place-items: center; font-size: 21px; font-weight: 800;
+}
+.search-wrap { max-width: 430px; width: 100%; }
+.search-input {
+  width: 100%; border: 1px solid #343a35; background: #222722; color: white;
+  border-radius: 999px; padding: 11px 17px; outline: none;
+}
+.search-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px #1ed76025; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: #d9c4ff; color: #26183d; font-weight: 800;
+}
+.hero {
+  padding: clamp(26px, 5vw, 58px); border-radius: 22px; margin-bottom: 26px;
+  background: radial-gradient(circle at 80% 15%, #416c3f 0, transparent 30%),
+              linear-gradient(120deg, #203b28 0%, #15261b 52%, #121512 100%);
+  overflow: hidden; position: relative;
+}
+.eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-size: .76rem; font-weight: 800; }
+.hero h1 { font-size: clamp(2.1rem, 5vw, 4.1rem); line-height: 1.05; font-weight: 800; letter-spacing: -2px; max-width: 690px; margin: 14px 0; }
+.hero p { color: #d0d8d0; max-width: 590px; }
+.primary-btn {
+  background: var(--green); color: #061007; border: 0; border-radius: 999px;
+  font-weight: 800; padding: 12px 22px; transition: transform .15s, background .15s;
+}
+.primary-btn:hover { background: #50e780; transform: scale(1.03); }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin: 26px 0 15px; }
+.section-head h2 { font-size: 1.4rem; font-weight: 800; margin: 0; }
+.muted { color: var(--muted); font-size: .9rem; }
+.track-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.track-card {
+  background: var(--panel); border: 1px solid transparent; border-radius: 16px; padding: 14px;
+  transition: background .18s, transform .18s; min-width: 0;
+}
+.track-card:hover { background: var(--panel-hover); transform: translateY(-3px); }
+.cover {
+  aspect-ratio: 1 / 1; border-radius: 11px; display: flex; align-items: end; justify-content: start;
+  padding: 15px; position: relative; overflow: hidden; margin-bottom: 14px;
+}
+.cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #0008, transparent 70%); }
+.cover-symbol { position: relative; z-index: 1; font-size: clamp(2.2rem, 4vw, 4rem); filter: drop-shadow(0 4px 8px #0007); }
+.cover-one { background: linear-gradient(135deg, #ff9f43, #c62b48 55%, #451d5c); }
+.cover-two { background: linear-gradient(135deg, #90e0ef, #0077b6 55%, #03045e); }
+.cover-three { background: linear-gradient(135deg, #e8c547, #e76f51 55%, #6d213c); }
+.cover-four { background: linear-gradient(135deg, #a8dadc, #457b9d 50%, #1d3557); }
+.cover-five { background: linear-gradient(135deg, #cdb4db, #ffc8dd 50%, #6d597a); }
+.cover-six { background: linear-gradient(135deg, #95d5b2, #40916c 50%, #081c15); }
+.track-title { font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+.track-artist { color: var(--muted); font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 12px; }
+.badge-genre { background: #253a2a !important; color: #a9f4bd !important; border: 1px solid #36543d; font-weight: 600; }
+.open-track {
+  width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--green); color: #071008;
+  font-size: 1.05rem; font-weight: 800; display: grid; place-items: center;
+}
+.empty-state { color: var(--muted); padding: 28px 0; }
+.detail-layout { display: grid; grid-template-columns: minmax(240px, 360px) 1fr; gap: clamp(22px, 5vw, 54px); align-items: center; padding: clamp(18px, 4vw, 42px); background: #121512; border-radius: 22px; }
+.detail-cover { width: 100%; max-width: 360px; aspect-ratio: 1 / 1; border-radius: 16px; display: grid; place-items: center; font-size: 8rem; box-shadow: 0 20px 50px #0006; }
+.detail-title { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; font-weight: 800; letter-spacing: -1.5px; margin: 10px 0; }
+.detail-description { color: #c0c7c1; line-height: 1.8; max-width: 650px; }
+.info-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+.info-pill { padding: 8px 12px; border-radius: 999px; background: #252b26; color: #dce4dd; font-size: .88rem; }
+.back-btn { background: transparent; border: 1px solid #4c554d; color: white; border-radius: 999px; padding: 9px 16px; margin-bottom: 18px; }
+.back-btn:hover { background: #242a25; }
+.footer { color: #747c75; font-size: .8rem; text-align: center; padding: 30px 0 12px; }
+@media (max-width: 950px) { .track-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 650px) {
+  .app-shell { padding: 10px; } .topbar { padding: 12px; flex-wrap: wrap; }
+  .search-wrap { order: 3; max-width: none; } .track-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .track-card { padding: 10px; } .detail-layout { grid-template-columns: 1fr; }
+  .detail-cover { max-width: 260px; margin: 0 auto; } .hero h1 { letter-spacing: -1px; }
+}
+@media (max-width: 360px) { .track-grid { grid-template-columns: 1fr; } }
+
+/* Ссылка на репозиторий GitHub в нижней части главной страницы */
+.github-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.github-footer a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 700;
+}
+.github-footer a:hover {
+  color: #50e780;
+  text-decoration: underline;
+}
